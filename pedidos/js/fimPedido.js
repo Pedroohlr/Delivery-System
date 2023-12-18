@@ -52,6 +52,10 @@ function finalizar() {
   location.href = "../../src/html/index.html";
 };
 
+if (isNaN(entrega)) {
+    entrega = 0;
+}
+
 function resolucao() {
   document.querySelector(".res").innerHTML =
     `
