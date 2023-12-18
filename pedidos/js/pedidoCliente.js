@@ -18,8 +18,10 @@ function verPedido(){
         <br>
         `
     } else {
+        if(isNaN(infos.entrega)) {var entrega = 0} else {entrega = infos.entrega};
         document.querySelector('.btnPedido').style.display = 'none';
         document.querySelector('.verPedido').innerHTML = `
+
 
         <h1>Seu pedido</h1>
 
@@ -27,6 +29,7 @@ function verPedido(){
         <p>Refeição: ${infos.refeicao}</p>
         <p>Acompanhamento: ${infos.acompanhamento}</p>
         <p>Bebida: ${infos.bebida}</p>
+        <p>Taxa de entrega: <strong>R$${entrega.toFixed(2)}</strong></p>
         <p>No total de: <strong>R$${infos.valorTotal.toFixed(2)}</strong></p>
     `
     };

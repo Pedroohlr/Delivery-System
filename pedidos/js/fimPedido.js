@@ -14,6 +14,7 @@ let enderecoCliente = localStorage.getItem("endereco");
 let telefone = localStorage.getItem("telefone");
 
 let entrega = parseFloat(localStorage.getItem('valorEntrega'));
+if (isNaN(entrega)){entrega = 0;}
 
 let valorTotal = parseFloat(localStorage.getItem("valorTotal"));
 
@@ -27,7 +28,8 @@ function finalizar() {
     refeicao,
     bebida,
     acompanhamento,
-    valorTotal
+    valorTotal,
+    entrega
   };
 
   const infosJSON = JSON.stringify(infos);
@@ -52,9 +54,6 @@ function finalizar() {
   location.href = "../../src/html/index.html";
 };
 
-if (isNaN(entrega)) {
-    entrega = 0;
-}
 
 function resolucao() {
   document.querySelector(".res").innerHTML =
