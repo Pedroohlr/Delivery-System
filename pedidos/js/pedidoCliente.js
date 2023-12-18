@@ -27,7 +27,7 @@ function verPedido(){
         <p>Refeição: ${infos.refeicao}</p>
         <p>Acompanhamento: ${infos.acompanhamento}</p>
         <p>Bebida: ${infos.bebida}</p>
-        <p>No total de: <strong>R$${infos.valorTotal}</strong></p>
+        <p>No total de: <strong>R$${infos.valorTotalto.toFixed(2)}</strong></p>
     `
     };
 };
