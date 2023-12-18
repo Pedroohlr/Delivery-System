@@ -14,7 +14,7 @@ window.onload = function() {
         <p>Refeição pedida: ${infos.refeicao}</p>
         <p>Acompanhamento pedido: ${infos.acompanhamento}</p>
         <p>Bebida pedida: ${infos.bebida}</p>
-        <p>No valor de: <strong>R$${infos.valorTotal}</strong></p>
+        <p>No valor de: <strong>R$${infos.valorTotal.toFixed(2)}</strong></p>
         `
         document.querySelector('.btnCancelar').addEventListener('click', ()=>{
             alert("O pedido foi cancelado!")
