@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../img/icon2.png" type="image/x-icon">
+        <link rel="stylesheet" href="../css/cadastroCantina.css">
+        <link rel="stylesheet" href="../../pedidos/html/fimPedido.html">
+        <title>Formulário de Pedido</title>
+        <script src="../js/cadastroRetirada.js" defer></script>
+</head>
+<body>
+
+    <section class="container"> 
+        <h1>Cadastro do Cliente</h1>
+        <form id="pedidoForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+            <label for="celular">Número de Celular:</label>
+            <input type="tel" id="celular" name="celular" placeholder="Apenas números" required>
+            <button type="submit" onclick="cadastro()">Enviar e continuar com o pedido</button>
+        </form>
+    </section>
+
+</body>
+</html>
