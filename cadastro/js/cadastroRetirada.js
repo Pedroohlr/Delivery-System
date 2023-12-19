@@ -9,5 +9,6 @@ function cadastro() {
       localStorage.setItem("telefone", userCell.value);
       location.href = "../../pedidos/html/fimPedido.html";
       alert("Cadastro Feito com sucesso");
+      localStorage.setItem('valorEntrega', 0);
   };
 };

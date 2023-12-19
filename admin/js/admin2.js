@@ -10,11 +10,6 @@ window.onload = function() {
         
         localStorage.removeItem("usuarioAutenticado");
         
-        if(isNaN(infos.entrega)){
-            var entrega = 0;
-        } else {
-            entrega = infos.entrega;
-        }
 
         // let valorEntrega = entrega;
         document.querySelector('.pedidos').innerHTML = `
@@ -22,7 +17,7 @@ window.onload = function() {
         <p>Refeição pedida: ${infos.refeicao}</p>
         <p>Acompanhamento pedido: ${infos.acompanhamento}</p>
         <p>Bebida pedida: ${infos.bebida}</p>
-        <p>Valor da entrega : <strong>R$${entrega.toFixed(2)}</strong></p>
+        <p>Valor da entrega : <strong>R$${infos.entrega.toFixed(2)}</strong></p>
         <p>No valor de: <strong>R$${infos.valorTotal.toFixed(2)}</strong></p>
         `
         document.querySelector('.btnCancelar').addEventListener('click', ()=>{

@@ -2,7 +2,8 @@ function infos() {
     let userName = document.querySelector('#nome').value;
     let endereco = document.querySelector('#endereco').value;
     let userCell = document.querySelector('input[type=tel]').value;
-
+    localStorage.setItem('valorEntrega', 0);
+    
     if (userCell == '' ||userName == '' || endereco == ''){
         alert('Preencha os campos corretamente')
     } else {

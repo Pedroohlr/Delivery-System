@@ -14,11 +14,14 @@ let enderecoCliente = localStorage.getItem("endereco");
 let telefone = localStorage.getItem("telefone");
 
 let entrega = parseFloat(localStorage.getItem('valorEntrega'));
-if (isNaN(entrega)){entrega = 0;}
 
 let valorTotal = parseFloat(localStorage.getItem("valorTotal"));
 
 document.querySelector('#finalizarPedido').innerHTML = `Seu pedido ficou em <strong>R$`+valorTotal.toFixed(2)+` </strong> deseja realizar seu pedido?`
+    
+if (enderecoCliente == null){
+  enderecoCliente = "";
+}
 
 function finalizar() {
   const infos = {
@@ -31,6 +34,7 @@ function finalizar() {
     valorTotal,
     entrega
   };
+
 
   const infosJSON = JSON.stringify(infos);
 
