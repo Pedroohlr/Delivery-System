@@ -10,8 +10,6 @@ window.onload = function() {
         
         localStorage.removeItem("usuarioAutenticado");
         
-
-        // let valorEntrega = entrega;
         document.querySelector('.pedidos').innerHTML = `
         <p>Nome do cliente: ${infos.nome}</p> 
         <p>Refeição pedida: ${infos.refeicao}</p>
