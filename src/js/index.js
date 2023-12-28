@@ -1,3 +1,4 @@
+
 function acessarPedidos() {
     location.href = "../../pedidos/html/refeicao.html";
 }

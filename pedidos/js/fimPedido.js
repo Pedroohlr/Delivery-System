@@ -18,10 +18,6 @@ let entrega = parseFloat(localStorage.getItem('valorEntrega'));
 let valorTotal = parseFloat(localStorage.getItem("valorTotal"));
 
 document.querySelector('#finalizarPedido').innerHTML = `Seu pedido ficou em <strong>R$`+valorTotal.toFixed(2)+` </strong> deseja realizar seu pedido?`
-    
-if (enderecoCliente == null){
-  enderecoCliente = "";
-}
 
 function finalizar() {
   const infos = {
