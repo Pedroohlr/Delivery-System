@@ -45,12 +45,10 @@ function finalizar() {
   localStorage.removeItem("valorTotal");
   localStorage.removeItem("valorUnBebida");
   localStorage.removeItem("valorUnAcompanhamento");
-  localStorage.removeItem("valorEntrega")
+  localStorage.removeItem("valorEntrega");
   localStorage.removeItem("valorUnRefeicao");
 
-  alert(
-    "Pedido realizado com sucesso, a comida deve chegar em 7 minutos."
-  );
+  alert("Pedido realizado com sucesso, a comida deve chegar em 7 minutos.");
   location.href = "../../src/html/index.html";
 };
 
