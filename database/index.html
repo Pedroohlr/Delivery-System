@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+        <title>Document</title>
+    </head>
+    
+    <body>
+
+    <button onclick="teste()">afuigeaof</button>
+    <button onclick="coletar()">coletar</button>
+    <button onclick="coletarArr()">coletar Array</button>
+    <p></p>
+    <script src="arr.js" ></script>
+    <script src="login/index.js"></script>
+    <script>
+        
+        const db = app.database();
+        
+        function teste(){
+           let teste = prompt('informe o caminho');
+           let teste2 = prompt("informe o valor");
+           db.ref(teste).set(teste2);
+        }
+
+        function coletar(){
+            let teste = prompt('Diga o caminho');
+            db.ref(teste).once("value").then((db)=>{
+                const value = db.val();
+                document.querySelector('p').innerHTML = `
+                ${value}
+                `
+            });
+        }
+
+        function createArr(arr){
+            let reqTeste = prompt('informe o req');
+            retorno(db,reqTeste).fbSet(arr);
+        }
+
+        function coletarArr(){
+            let caminhoArr = prompt("diga o caminho");
+            let indexArr = prompt("indice do arr para coletar");
+            indexArr = parseInt(indexArr);
+            retorno(db,caminhoArr).fbGet().then((db)=>{
+                alert(`valor coletado : ${db[indexArr]}`);
+            })
+        }
+
+        
+    </script>
+    
+</body>
+
+</html>
