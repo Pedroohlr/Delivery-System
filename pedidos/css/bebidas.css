@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 500px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
@@ -19,37 +19,209 @@ h1 {
     color: #333;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 5px 0;
-    color: #555;
-}
-
-div {
-    margin-top: 20px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
+.prox > button {
+    background-color: #3498db;
     color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.prox > button:hover{
+    background-color: #5f5f5f;
+}
+
+/*css da coca*/
+
+.coca2l {
+    background-color: #cdcdcd;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.coca2l > img {
+    max-width: 200px;
+    height: auto;
+}
+
+.coca2l > p {
+    margin: 10px 0;
+}
+
+.coca2l > strong {
+    color: green;
+}
+
+.coca2l > .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.coca2l > .btn:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+/*css da fanta laranja*/
+.fanta-laranja {
+    background-color: #cdcdcd;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+}
+
+.fanta-laranja > img {
+    max-width: 200px;
+    height: auto;
+}
+
+.fanta-laranja > p {
+    margin: 10px 0;
+}
+
+.fanta-laranja > strong {
+    color: green;
+}
+
+.fanta-laranja > .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.fanta-laranja > .btn:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+/*css da fanta uva*/
+
+.fanta-uva {
+    background-color: #cdcdcd;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+
+        overflow: hidden;
+}
+
+.fanta-uva > img {
+    max-width: 200px;
+    height: auto;
+}
+
+.fanta-uva> p {
+    margin: 10px 0;
+}
+
+.fanta-uva > strong {
+    color: green;
+}
+
+.fanta-uva > .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.fanta-uva > .btn:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+/*css da agua*/
+
+.aguaImg {
+    background-color: #cdcdcd;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.aguaImg > img {
+    max-width: 200px;
+    height: auto;
+}
+
+.aguaImg> p {
+    margin: 10px 0;
+}
+
+.aguaImg > strong {
+    color: green;
+}
+
+.aguaImg > .btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.aguaImg > .btn:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+/*css do carrinho*/
+
+.carrinho{
+    position: fixed;
+    right: 40px;
+    display: flex;
+    line-height: column;
+    margin: 0;
+    background-color: #cdcdcd;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.carrinho > img{
+    max-width: 100px;
+}
+.carrinho > img:hover{
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+.carrinho2{
+    padding-right: 20px;
 }

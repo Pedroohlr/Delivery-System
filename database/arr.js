@@ -1,5 +1,3 @@
-
-
 function retorno(db, req) {
     var dir = `arrays/${req}`
     function fbGet() {

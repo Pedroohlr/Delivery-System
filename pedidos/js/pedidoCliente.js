@@ -50,6 +50,6 @@ function verPedido() {
         <p id ="entrega">Taxa de entrega: <strong>R$${infos.entrega.toFixed(2)}</strong></p>
         <p>No total de: <strong>R$${infos.valorTotal.toFixed(2)}</strong></p>
         <button onclick="confirmarCancelamento()">Cancelar pedido</button>
-    `
+        `
     };
 };

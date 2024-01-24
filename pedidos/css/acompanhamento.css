@@ -19,37 +19,41 @@ h1 {
     color: #333;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 5px 0;
-    color: #555;
-}
-
-div {
-    margin-top: 20px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
+.prox > button {
+    background-color: #3498db;
     color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.prox > button:hover{
+    background-color: #5f5f5f;
+}
+
+/*css do carrinho*/
+
+.carrinho{
+    position: fixed;
+    right: 40px;
+    display: flex;
+    line-height: column;
+    margin: 0;
+    background-color: #cdcdcd;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.carrinho > img{
+    max-width: 100px;
+}
+.carrinho > img:hover{
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+.carrinho2{
+    padding-right: 20px;
 }
