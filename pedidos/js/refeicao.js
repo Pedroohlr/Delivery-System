@@ -3,18 +3,22 @@ const xsaladaValue = 18.30;
 const xtudoValue = 21.70;
 
 let valorTotal = 0;
+let qtdItens = 0;
 
-const carrinho = []
+const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
 
 function addProduct(name,price) {
     let product  = {
-        name: name,
-        price: price
+        name,
+        price
     }
+    qtdItens += 1;
     valorTotal += price
     carrinho.push(product);
     localStorage.setItem('carrinho', JSON.stringify(carrinho))
     localStorage.setItem('valorTotal', valorTotal);
+    localStorage.setItem('qtdItens', qtdItens)
 }
 
 function confirmarPedido( name,price ) {
@@ -32,54 +36,50 @@ function confirmarPedido( name,price ) {
         document.querySelector('.cancelar').addEventListener('click', () => {
             document.querySelector('.float').style.display = 'none';
             addProduct(name,price)
+            document.querySelector('.carrinho').innerHTML = `
+            <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+            <div class="carrinho2">
+                <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+                <p class="itens"> ${qtdItens} itens</p>
+            </div>
+            `
+            updateCartOnScreen();
             return resolve
         });
     });
 }
 
-function clear(){
-    localStorage.clear()
+function prox(){
+    localStorage.setItem('qtdItens', qtdItens)
+    location.href = "bebidas.html"
 }
 
-/*async function TESTESconfirmarPedido(pedido) {
-    document.querySelector('.float').innerHTML = `
-    <p>Deseja adicionar ${pedido} ?</p>
-    <br><br>
-    <button class="voltar">Não</button> <button class="cancelar">Sim</button>
-    `
-    document.querySelector('.float').style.display = 'block';
-    document.querySelector('.voltar').addEventListener('click', () => {
-        document.querySelector('.float').style.display = 'none';
-    });
-    document.querySelector('.cancelar').addEventListener('click', () => {
-        document.querySelector('.float').style.display = 'none';
-    });
-}*/
+function updateCartOnScreen() {
+    document.querySelector('.carrinho').innerHTML = `
+        <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+        <div class="carrinho2">
+            <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+            <p class="itens"> ${qtdItens} itens</p>
+        </div>
+    `;
+}
 
-/*function optionsRefeicao() {
-    if (numeroEscolhido.value == '1') {
-        valorTotal = valorTotal + xtudoValue;
-        location.href = '../../pedidos/html/bebidas.html'
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptRefeicao', "XTUDO");
-        localStorage.setItem('valorUnRefeicao', xtudoValue);
+window.addEventListener('load', () => {
+    document.querySelector('.carrinho').innerHTML = `
+    <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+    <div class="carrinho2">
+        <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+        <p class="itens"> ${qtdItens} itens</p>
+    </div>
+`;
+});
 
-    } else if (numeroEscolhido.value == '2') {
-        valorTotal = valorTotal + xbaconValue;
-        location.href = '../../pedidos/html/bebidas.html'
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptRefeicao', "XBACON");
-        localStorage.setItem('valorUnRefeicao', xbaconValue);
+window.addEventListener('load', () => document.querySelector('.carrinho').innerHTML = `
+<img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+<div class="carrinho2">
+    <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+    <p class="itens"> ${qtdItens} itens</p>
+</div>
+`)
 
-    } else if (numeroEscolhido.value == '3') {
-        valorTotal = valorTotal + xsaladaValue;
-        location.href = '../../pedidos/html/bebidas.html'
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptRefeicao', "XSALADA");
-        localStorage.setItem('valorUnRefeicao', xsaladaValue);
-        
-    } else if (numeroEscolhido == '0') {
-        alert('Voltando ao menu principal')
-        location.href = '../../src/html/index.html'
-    };
-};*/
+document.querySelector('.limpar').addEventListener('click', () => localStorage.clear())
