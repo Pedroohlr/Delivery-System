@@ -1,11 +1,11 @@
 let valorTotal = parseFloat(localStorage.getItem('valorTotal'));
+let qtdItens = parseFloat(localStorage.getItem('qtdItens'));
 
 const cocaCola2L = 9.99;
 const fantaLaranja = 6.99;
 const antartica2L = 4.99;
 const aguaSemGas = 2;
 
-let qtdItens = parseFloat(localStorage.getItem('qtdItens'));
 
 const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 

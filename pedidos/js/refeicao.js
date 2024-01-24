@@ -68,18 +68,25 @@ window.addEventListener('load', () => {
     document.querySelector('.carrinho').innerHTML = `
     <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
     <div class="carrinho2">
-        <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+        <p class="valorTotal"><strong>R$${valorTotal.toFixed(2) || 0}</strong></p>
         <p class="itens"> ${qtdItens} itens</p>
     </div>
 `;
 });
 
-window.addEventListener('load', () => document.querySelector('.carrinho').innerHTML = `
+window.addEventListener('load', () => {
+    let valorTotal = parseFloat(localStorage.getItem('valorTotal'));
+    let qtdItens = parseFloat(localStorage.getItem('qtdItens'));
+
+    if(isNaN(valorTotal)){
+            valorTotal = 0
+    }
+document.querySelector('.carrinho').innerHTML = `
 <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
 <div class="carrinho2">
-    <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
-    <p class="itens"> ${qtdItens} itens</p>
+    <p class="valorTotal"><strong>R$${valorTotal.toFixed(2) || 0}</strong></p>
+    <p class="itens"> ${qtdItens || 0} itens</p>
 </div>
-`)
+`})
 
 document.querySelector('.limpar').addEventListener('click', () => localStorage.clear())
