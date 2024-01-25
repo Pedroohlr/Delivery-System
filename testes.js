@@ -15,10 +15,9 @@ const users = [
         endereco: 'Padre Arthur Samuel 332'
     }
 ]
-
 function consultarCliente(id) {
-    return new Promise(( resolve, reject ) => {
-        for (let i=0; i<users.length; i++) {
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < users.length; i++) {
             const user = users[i];
             if (id != user.userId) {
                 console.log('O id é diferente');
@@ -34,9 +33,33 @@ function consultarCliente(id) {
         }
     });
 }
-
 consultarCliente(4414).then((msgSucess) => {
     console.log(msgSucess)
 }).catch((msgErr) => {
     console.log(msgErr)
-})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

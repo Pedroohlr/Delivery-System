@@ -1,3 +1,12 @@
+let notinha =JSON.parse(localStorage.getItem('carrinho'));
+
+
+    
+
+
+
+
+
 //informações do pedido
 let refeicao = localStorage.getItem("receiptRefeicao");
 let valorUnRefeicao = localStorage.getItem("valorUnRefeicao")

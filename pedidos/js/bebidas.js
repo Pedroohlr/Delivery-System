@@ -1,17 +1,11 @@
-let valorTotal = parseFloat(localStorage.getItem('valorTotal'));
-let qtdItens = parseFloat(localStorage.getItem('qtdItens'));
+let valorTotal = parseFloat(localStorage.getItem('valorTotal') || 0);
+let qtdItens = parseFloat(localStorage.getItem('qtdItens') || 0);
 
-const cocaCola2L = 9.99;
-const fantaLaranja = 6.99;
-const antartica2L = 4.99;
-const aguaSemGas = 2;
+const carrinho = JSON.parse(localStorage.getItem('carrinho')) || []; //essa linha faz alguma coisa
 
 
-const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-
-function addProduct(name,price) {
-    let product  = {
+function addProduct(name, price) {
+    let product = {
         name,
         price
     }
@@ -20,10 +14,11 @@ function addProduct(name,price) {
     carrinho.push(product);
     localStorage.setItem('carrinho', JSON.stringify(carrinho))
     localStorage.setItem('valorTotal', valorTotal);
+    localStorage.setItem('qtdItens', qtdItens)
 }
 
-function confirmarPedido( name,price ) {
-    return new Promise(( resolve, reject ) => {
+function confirmarPedido(name, price) {
+    return new Promise((resolve, reject) => {
         document.querySelector('.float').innerHTML = `
             <p>Deseja adicionar?</p>
             <br><br>
@@ -36,12 +31,12 @@ function confirmarPedido( name,price ) {
         });
         document.querySelector('.cancelar').addEventListener('click', () => {
             document.querySelector('.float').style.display = 'none';
-            addProduct(name,price)
+            addProduct(name, price)
             document.querySelector('.carrinho').innerHTML = `
             <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
             <div class="carrinho2">
                 <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
-                <p class="itens"> ${qtdItens} itens</p>
+                <p class="itens"> ${qtdItens || 0} itens</p>
             </div>
             `
             return resolve
@@ -49,14 +44,16 @@ function confirmarPedido( name,price ) {
     });
 }
 
-function prox(){
-    location.href = "bebidas.html"
-}
 
-window.addEventListener('load', () => document.querySelector('.carrinho').innerHTML = `
-<img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+window.addEventListener('load', () => {
+    if (isNaN(valorTotal)) valorTotal = 0;
+
+    document.querySelector('.carrinho').innerHTML = `
+    <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
 <div class="carrinho2">
-    <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
-    <p class="itens"> ${qtdItens} itens</p>
+<p class="valorTotal"><strong>R$${valorTotal.toFixed(2) || 0}</strong></p>
+<p class="itens"> ${qtdItens || 0} itens</p>
 </div>
-`)
+`});
+
+function prox() { location.href = 'acompanhamentos.html' }

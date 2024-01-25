@@ -1,9 +1,5 @@
-const xbaconValue = 22.49;
-const xsaladaValue = 18.30;
-const xtudoValue = 21.70;
-
-let valorTotal = 0;
-let qtdItens = 0;
+let valorTotal = parseFloat(localStorage.getItem('valorTotal') || 0);
+let qtdItens = parseFloat(localStorage.getItem('qtdItens') || 0);
 
 const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
@@ -18,7 +14,7 @@ function addProduct(name,price) {
     carrinho.push(product);
     localStorage.setItem('carrinho', JSON.stringify(carrinho))
     localStorage.setItem('valorTotal', valorTotal);
-    localStorage.setItem('qtdItens', qtdItens)
+    localStorage.setItem('qtdItens', qtdItens);
 }
 
 function confirmarPedido( name,price ) {
@@ -78,9 +74,8 @@ window.addEventListener('load', () => {
     let valorTotal = parseFloat(localStorage.getItem('valorTotal'));
     let qtdItens = parseFloat(localStorage.getItem('qtdItens'));
 
-    if(isNaN(valorTotal)){
-            valorTotal = 0
-    }
+    if(isNaN(valorTotal)) valorTotal = 0
+    
 document.querySelector('.carrinho').innerHTML = `
 <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
 <div class="carrinho2">
@@ -90,3 +85,6 @@ document.querySelector('.carrinho').innerHTML = `
 `})
 
 document.querySelector('.limpar').addEventListener('click', () => localStorage.clear())
+
+const teste = JSON.parse(localStorage.getItem('oi'))
+console.log(teste)

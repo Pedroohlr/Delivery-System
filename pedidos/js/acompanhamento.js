@@ -1,36 +1,59 @@
-let molhoAlho = 3.59;
-let batataFrita = 12.50;
-let cebolaEmpanada = 15.99;
-let molhoBarbecue = 8.39;
+let valorTotal = parseFloat(localStorage.getItem('valorTotal') || 0);
+let qtdItens = parseFloat(localStorage.getItem('qtdItens') || 0);
+
+const carrinho = JSON.parse(localStorage.getItem('carrinho')) || []; //essa linha faz alguma coisa
 
 
-let valorTotal = parseFloat(localStorage.getItem('valorTotal'));
-let acompanhamentoEscolhido = document.querySelector('input[type=text]');
+function addProduct(name, price) {
+    let product = {
+        name,
+        price
+    }
+    qtdItens += 1;
+    valorTotal += price
+    carrinho.push(product);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho))
+    localStorage.setItem('valorTotal', valorTotal);
+    localStorage.setItem('qtdItens', qtdItens)
+}
 
-function sectionAcompanhamento() {
-    if(acompanhamentoEscolhido.value == '1'){
-        valorTotal = valorTotal + molhoAlho;
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptAcompanhamentos', "Molho de alho");
-        localStorage.setItem('valorUnAcompanhamento', molhoAlho);
-        location.href = "../../cadastro/html/metodoRetirada.html";
-    } else if (acompanhamentoEscolhido.value == '2'){
-        valorTotal = valorTotal + batataFrita;
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptAcompanhamentos', "Batata Frita");
-        localStorage.setItem('valorUnAcompanhamento', batataFrita);
-        location.href = "../../cadastro/html/metodoRetirada.html";
-     } else if (acompanhamentoEscolhido.value == '3'){
-        valorTotal = valorTotal + cebolaEmpanada;
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptAcompanhamentos', "Cebola Empanada");
-        localStorage.setItem('valorUnAcompanhamento', cebolaEmpanada);
-        location.href = "../../cadastro/html/metodoRetirada.html";
-     } else if (acompanhamentoEscolhido.value == '4'){
-        valorTotal = valorTotal + molhoBarbecue;
-        localStorage.setItem('valorTotal', valorTotal);
-        localStorage.setItem('receiptAcompanhamentos', "Molho Barbecue");
-        localStorage.setItem('valorUnAcompanhamento', molhoAlho);
-        location.href = "../../cadastro/html/metodoRetirada.html";
-     };
-};
+function confirmarPedido(name, price) {
+    return new Promise((resolve, reject) => {
+        document.querySelector('.float').innerHTML = `
+            <p>Deseja adicionar?</p>
+            <br><br>
+            <button class="nao">Não</button> <button class="cancelar">Sim</button>
+            `
+        document.querySelector('.float').style.display = 'block';
+        document.querySelector('.nao').addEventListener('click', () => {
+            document.querySelector('.float').style.display = 'none';
+            return reject
+        });
+        document.querySelector('.cancelar').addEventListener('click', () => {
+            document.querySelector('.float').style.display = 'none';
+            addProduct(name, price)
+            document.querySelector('.carrinho').innerHTML = `
+            <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+            <div class="carrinho2">
+                <p class="valorTotal"><strong>R$${valorTotal.toFixed(2)}</strong></p>
+                <p class="itens"> ${qtdItens || 0} itens</p>
+            </div>
+            `
+            return resolve
+        });
+    });
+}
+
+
+window.addEventListener('load', () => {
+    if (isNaN(valorTotal)) valorTotal = 0;
+
+    document.querySelector('.carrinho').innerHTML = `
+    <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+<div class="carrinho2">
+<p class="valorTotal"><strong>R$${valorTotal.toFixed(2) || 0}</strong></p>
+<p class="itens"> ${qtdItens || 0} itens</p>
+</div>
+`});
+
+function prox() { location.href = '../../cadastro/html/metodoRetirada.html' }
