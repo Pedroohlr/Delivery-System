@@ -1,11 +1,4 @@
-let notinha =JSON.parse(localStorage.getItem('carrinho'));
-
-
-    
-
-
-
-
+let notinha = JSON.parse(localStorage.getItem('carrinho'));
 
 //informações do pedido
 let refeicao = localStorage.getItem("receiptRefeicao");
@@ -26,46 +19,46 @@ let entrega = parseFloat(localStorage.getItem('valorEntrega'));
 
 let valorTotal = parseFloat(localStorage.getItem("valorTotal"));
 
-document.querySelector('#finalizarPedido').innerHTML = `Seu pedido ficou em <strong>R$`+valorTotal.toFixed(2)+` </strong> deseja realizar seu pedido?`
+document.querySelector('#finalizarPedido').innerHTML = `Seu pedido ficou em <strong>R$` + valorTotal.toFixed(2) + ` </strong> deseja realizar seu pedido?`
 
 function finalizar() {
-  const infos = {
-    nome: nomeCliente,
-    endereco: enderecoCliente,
-    telefone,
-    refeicao,
-    bebida,
-    acompanhamento,
-    valorTotal,
-    entrega
-  };
+    const infos = {
+        nome: nomeCliente,
+        endereco: enderecoCliente,
+        telefone,
+        refeicao,
+        bebida,
+        acompanhamento,
+        valorTotal,
+        entrega
+    };
 
 
-  const infosJSON = JSON.stringify(infos);
+    const infosJSON = JSON.stringify(infos);
 
-  localStorage.setItem("infos", infosJSON);
-  localStorage.removeItem("receiptReceicao");
-  localStorage.removeItem("receiptBebida");
-  localStorage.removeItem("receiptRefeicao");
-  localStorage.removeItem("receiptAcompanhamentos");
-  localStorage.removeItem("nome");
-  localStorage.removeItem("endereco");
-  localStorage.removeItem("telefone");
-  localStorage.removeItem("valorTotal");
-  localStorage.removeItem("valorUnBebida");
-  localStorage.removeItem("valorUnAcompanhamento");
-  localStorage.removeItem("valorEntrega");
-  localStorage.removeItem("valorUnRefeicao");
+    localStorage.setItem("infos", infosJSON);
+    localStorage.removeItem("receiptReceicao");
+    localStorage.removeItem("receiptBebida");
+    localStorage.removeItem("receiptRefeicao");
+    localStorage.removeItem("receiptAcompanhamentos");
+    localStorage.removeItem("nome");
+    localStorage.removeItem("endereco");
+    localStorage.removeItem("telefone");
+    localStorage.removeItem("valorTotal");
+    localStorage.removeItem("valorUnBebida");
+    localStorage.removeItem("valorUnAcompanhamento");
+    localStorage.removeItem("valorEntrega");
+    localStorage.removeItem("valorUnRefeicao");
 
-  alert("Pedido realizado com sucesso, a comida deve chegar em 7 minutos.");
-  location.href = "../../src/html/index.html";
+    alert("Pedido realizado com sucesso, a comida deve chegar em 7 minutos.");
+    location.href = "../../src/html/index.html";
 };
 
 
 function resolucao() {
-  document.querySelector(".res").innerHTML =
-    `
-            <section class="container2">
+    document.querySelector(".res").innerHTML =
+        `
+        <section class="container2">
         <h1 class="hh1">Informações do Pedido</h1>
         <table>
             <thead>
@@ -80,9 +73,9 @@ function resolucao() {
             </thead>
             <tbody>
                 <tr>
-                    <td>`+nomeCliente+`</td>
-                    <td>`+telefone+`</td>
-                    <td>`+enderecoCliente+`</td>
+                    <td>`+ nomeCliente + `</td>
+                    <td>`+ telefone + `</td>
+                    <td>`+ enderecoCliente + `</td>
                 </tr>
             </tbody>
             <thead>
@@ -92,31 +85,36 @@ function resolucao() {
                 <tr>
                     <th>Produto</th>
                     <th>Preço Unitário</th>
-                    <th>Valor Total</th>
+                    <th>Valor Total: <span style="color: brown;" >R$${valorTotal}</span></th>
                 </tr>
-            </thead>
-            <tbody>
+            </thead>`
+            
+    for (let i = 0; i < notinha.length; i++) 
+        {
+        const parent = document.querySelector('table');
+
+        if (i === 0) 
+            parent.innerHTML = parent.innerHTML + "\n<tbody>" /*<--*/
+        
+        parent.innerHTML = parent.innerHTML + `
                 <tr>
-                    <td>`+refeicao+`</td>
-                    <td>R$`+valorUnRefeicao+`</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>`+bebida+`</td>
-                    <td>R$`+valorUnBebida+`</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>`+acompanhamento+`</td>
-                    <td>R$`+valorUnAcompanhamento+`</td>
-                    <td>R$`+valorTotal.toFixed(2)+`</td>
-                    
-                </tr>
-                <tr>
-                    <th colspan="3">Taxa de entrega: R$`+entrega.toFixed(2)+`</th>
-                </tr>
-                <!-- Adicione mais linhas conforme necessário -->
-            </tbody>
+                    <td>${notinha[i].name}</td>
+                    <td>R$${notinha[i].price}</td>
+                </tr>`
+
+        if (i === (notinha.length - 1)) 
+            parent.innerHTML = parent.innerHTML + "\n</tbody>" /*<--*/
+        
+        }
+
+    document.querySelector(".res").innerHTML = document.querySelector(".res").innerHTML + `
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
         </table>
         <br>
         <button onclick="finalizar()">Finalizar Pedido</button>
