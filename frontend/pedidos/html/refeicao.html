@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/icon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/refeicao.css">
+    <script src="../js/fazendoPedidos.js" defer></script>
+    <title>Refeição</title>
+</head>
+
+<body>
+
+    <div class="carrinho">
+        <img src="../../img/iconCarrinho.png" alt="foto do carrinho">
+        <div class="carrinho2">
+            <p class="valorTotal"><strong>R$0,00</strong></p>
+            <p class="itens"> 0 itens</p>
+        </div>
+    </div>
+
+    <section class="container">
+        <h1>Refeições</h1>
+        
+        <div class="lanche-xbacon">
+            <img src="../../img/xbacon.webp" alt="foto do produto">
+            <p><strong>R$22,49</strong></p>
+            <p>Sanduiche xBacon</p>
+            <button class="btn" onclick="confirmarPedido('xbacon',22.49)">Adicionar</button>
+        </div>        
+
+        <div class="lanche-xsalada">
+            <img src="../../img/x-salada-3.jpeg" alt="foto do produto">
+            <p><strong>R$18,30</strong></p>
+            <p>Sanduiche xSalada</p>
+            <button class="btn" onclick="confirmarPedido('xsalada', 18.30)">Adicionar</button>
+        </div>
+
+        <div class="lanche-xtudo">
+            <img src="../../img/xTudo.jpg" alt="foto do produto">
+            <p><strong>R$21,70</strong></p>
+            <p>Sanduiche xTudo</p>
+            <button class="btn" onclick="confirmarPedido('xtudo',21.70)">Adicionar</button>
+        </div>
+
+        <div class="prox">
+            <button><a href="./bebidas.html">Proximo</a></button>
+            <button class="limpar">apagar</button>
+        </div>
+        
+        <div class="float" style="display: none;"></div>
+
+    </section>
+
+</body>
+
+</html>
