@@ -10,37 +10,37 @@ function verPedido() {
         <button onclick="fazerPedido()">Fazer pedido</button>
         <br>
         `
-            return reject
+        return reject
         } else {
 
             const user = JSON.parse(localStorage.getItem('infos'));
-            const users = { ...user }
-            const notinha = users.notinha
+            const users = { ...user };
+            const notinha = users.notinha;
             const valorTotal = parseFloat(localStorage.getItem('ValorTotal')) || 0;
-            const valorEntrega = parseInt(localStorage.getItem('entrega'))
+            const valorEntrega = parseInt(localStorage.getItem('entrega'));
+            const horarioPedido = localStorage.getItem('data');
             const entrega = valorEntrega ? parseInt(valorEntrega) : 0
 
-    
             document.querySelector('.verPedido').innerHTML = `
             <div class="userInfo">
-            <h2> Informações do cliente </h2>
-            <p><strong>Nome:</strong> ${user.nome}</p>
-            <p><strong>Telefon:</strong> ${user.telefone}</p>
-            <p><strong>Endereço:</strong> ${user.endereco || "o pedido ser retirado na cantina!"} </p>
+                <h2> Informações do cliente </h2>
+                <p><strong>${horarioPedido}</strong></p>
+                <p><strong>Nome:</strong> ${user.nome}</p>
+                <p><strong>Telefon:</strong> ${user.telefone}</p>
+                <p><strong>Endereço:</strong> ${user.endereco || "o pedido ser retirado na cantina!"} </p>
             </div>
             
             <div>
-            <h2>Seu pedido</h2>
-            <div class="notinha">
-            </div>
-            <br>
-            <p>Valor da entrega: <strong>${entrega}</strong></p>
-            <p>No total de: <strong>R$${valorTotal.toFixed(2)}</strong></p>
-            <button onclick="confirmarCancelamento()">Cancelar pedido</button>
-            `
+                <h2>Seu pedido</h2>
+                <div class="notinha"></div>
+                <br>
+                <p>Valor da entrega: <strong>${entrega}</strong></p>
+                <p>No total de: <strong>R$${valorTotal.toFixed(2)}</strong></p>
+                <button onclick="confirmarCancelamento()">Cancelar pedido</button>
+                `
             for (let i = 0; i < notinha.length; i++) {
                 const parent = document.querySelector('.notinha')
-                if (i === 1) {
+                if (i === 0) {
                     parent.innerHTML = parent.innerHTML = "\n<div class='notinha'>"
                 }
                 parent.innerHTML = parent.innerHTML + `
@@ -78,4 +78,8 @@ function confirmarCancelamento() {
         alert("Seu pedido foi cancelado!");
         location.href = '../../src/html/index.html'
     });
+}
+
+function voltar(){
+    location.href ="../../src/html/index.html"
 }

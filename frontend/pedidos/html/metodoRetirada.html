@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/metodoRetirada.css">
+    <script src="../js/metodoRetirada.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="address-field" id="addressField">
+        <h2>Endereço de Entrega</h2>
+        <input type="text" id="address" placeholder="Digite seu endereço"> <br>
+        <button class="button" onclick="confirmarEndereco()">Confirmar endereço</button>
+    </div>
+
+    <h1>Escolha o Método de Retirada do Pedido</h1>
+    <button class="button" onclick="retiradaCantina()">Retirar na Cantina</button>
+    <button class="button" onclick="entrega()">Fazer Entrega <span style="color:#000;">(+R$5.00)</span></button>
+    
+    
+</body>
+</html>

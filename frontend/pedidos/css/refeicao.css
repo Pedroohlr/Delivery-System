@@ -175,17 +175,6 @@ a {
     align-items: center;
 }
 
-.carrinho > img{
-    max-width: 100px;
-}
-.carrinho > img:hover{
-    cursor: pointer;
-}
-
-.carrinho2{
-    padding-right: 20px;
-}
-
 /*float*/
 
 .float {

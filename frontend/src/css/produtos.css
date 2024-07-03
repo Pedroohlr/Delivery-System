@@ -1,0 +1,182 @@
+/* Reseta estilos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o corpo da página */
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: #007bff;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header img {
+    height: 60px;
+  }
+
+/* Estilo para o contêiner principal */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    
+}
+
+.func {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.func a {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.func a:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o botão de puxar produtos */
+button.produtos {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.produtos:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para os produtos */
+#data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.prod {
+    background-color: #cdcdcd;
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    width: 200px; /* Definindo uma largura fixa para os itens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prod > img {
+    width: 100%;
+    height: auto;
+}
+
+.prod > p {
+    margin: 10px 0;
+}
+
+.prod > strong {
+    color: green;
+}
+
+/* Estilo para tornar o layout responsivo */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .func a {
+        width: 100%;
+        font-size: 14px;
+    }
+    
+    .prod {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.bd {
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+.refeicao, .bebidas, .acompanhamentos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 20px;
+}
+
+.refeicao h2, .bebidas h2, .acompanhamentos h2 {
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.prod > img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+@media (max-width:768px){
+    .refeicao{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+.dellProduto{
+    background-color: red;
+    color: #fff;
+    border: #000 solid 1px;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.dellProduto:hover{
+    background-color: #cdcdcd;
+    color: #000;
+}
