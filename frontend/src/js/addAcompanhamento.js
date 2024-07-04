@@ -2,14 +2,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
-// Configuração do Firebase
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDsQ1RgkFXYBDeOzgzEMoRZ9myy4USd5do",
-    authDomain: "lanches-e2650.firebaseapp.com",
-    projectId: "lanches-e2650",
-    storageBucket: "lanches-e2650.appspot.com",
-    messagingSenderId: "930244230910",
-    appId: "1:930244230910:web:f9dc3b2aa96f5d55f06faf"
+  apiKey: window.env.API_KEY,
+  authDomain: window.env.authDomain,
+  projectId: window.env.projectId,
+  storageBucket: window.env.storageBucket,
+  messagingSenderId: window.env.messagingSenderId,
+  appId: window.env.appId
 };
 
 
